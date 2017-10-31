@@ -1,0 +1,529 @@
+-<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<div>
+	<ul>
+		<input type="checkbox" display='block'>	2232323	
+		<input type="checkbox" display='block'>	2232323	
+		<input type="checkbox" display='block'>	2232323	
+	</ul>
+</div>
+<body>
+	<script>
+		//1、选择排序
+	var arr = [5,8,3,6,9]
+	for(var i=0;i<arr.length;i++){
+	 for(var j=i+1;j<arr.length;j++){
+	 	 if(arr[i]>arr[j]){
+	 	 	var temp
+	 	 	temp=arr[i];
+	 	 	arr[i]=arr[j];
+	 	 	arr[j]=temp;
+		 	 }
+		 }
+	}
+	 console.log(arr)
+
+
+	 //2、字符串出现最多个数（2种）
+	 //.str=”abcdefgaaass”找字符中出现最多的;第一种
+	 	var str ='abcdefgaaass'
+          var aa=str.split("");
+          var max=0,val="";
+          function fn(arr,a){
+            var count=0;
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]==a){
+                  count++;
+                }
+            }
+            return count;
+          }
+          console.log(fn())
+          for(var i=0;i<aa.length;i++){
+
+              var ind=fn(aa,aa[i]);
+
+              if(ind>max){
+                max=ind;
+                val=aa[i];
+              }
+          }
+          console.log("出现最多的字符是"+val+"出现的次数是"+max)
+          //第二种
+          var str ='abcdefgaaass'
+          function change(arr){
+          	for(var j=0,len=0,str11='';j<arr.length;j++){
+          	var x = arr.substr(j,1);
+          	var y = arr.split(x);
+          	if(y.length-1>len){
+          		len = y.length-1;
+          		str1=x+','+len;
+          	}
+          }
+				return str1;
+          }
+          
+          console.log(change(strr));
+
+		
+		//3、编程实现，往数组里插入一个元素
+		var arr = ["1411A","44","34305","djg","pic"];
+		function fun3(ar,index,date){
+			for(var i=ar.length-1;i>=index;i--){
+				ar[i+1]=ar[i];
+			}
+			ar[index] = date;
+		}
+		fun3(arr,2,"hello");
+		console.log(arr);
+
+
+		//4、编程实现IndexOf方法
+		var brr=[5,9,6,3,2,5];
+		function indexfun(arr,val){
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]==val){
+					return i;
+				}
+			}
+			return -1;
+		}
+		console.log(indexfun(brr,13));
+
+
+		//5、求数组中最大值和最小值
+		var arr=[2,41,3,1,8];
+		var  temp=arr[0];
+
+		 for(var i=0;i<arr.length;i++){
+		 	  if(arr[i]<temp){
+		 	  	temp=arr[i];
+		 	  }
+		 }
+		 console.log(temp)
+
+		 // 6、将字符串转换为驼峰形式
+        var  str="border-bottom-color";
+        function isstr(str){
+          var arr=str.split("-");
+          var one=arr[0];
+          for(var i=1;i<arr.length;i++){
+              one+=arr[i].charAt(0).toUpperCase()+arr[i].substring(1);
+          }
+          return one;
+        }
+        console.log(isstr(str));
+        //7、var  str='a2b4admin3'字符的每个数字都乘2 ,成为'a4b8admin6'
+	   var url='a2b4admin3';
+	   var str11=''
+	    for(var i=0;i<url.length;i++){
+	    	  if(!isNaN(url[i])){
+	    	  	str11=str11+url[i]*2
+	    	  }else{
+	    	  	str11=str11+url[i]
+	    	  }
+	    }
+	    console.log(str11)
+
+	    //8、var  str='a2b4admin3'将字符串中的数字用中括号括起来 'a[2]b[4]admin[3]'
+	  function  num(str){
+	  var  arr=str.split('')
+	  for(var i=0;i<arr.length;i++){
+	          if(!isNaN(arr[i])){
+	          	arr[i]="["+arr[i]+"]"
+	          }
+
+	  }
+	 	return arr.join('')
+	  }
+
+	 console.log(num(url))
+	 //9、首先判断在数组中哪个数最大，然后让数组中的第一个数与最大的数相乘，返回结果
+		 function maxn(arr){
+				var big=arr[0];
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]>big){
+						big=arr[i]
+					}
+				}
+				return big*arr[0]
+			}
+			console.log(maxn([2,1,80,6,10]));
+
+	//10、 var str='abc' 让字符串重复3遍，成为 str='abcabcabc'
+	    var str='abc';
+		function xun(a,b){
+			var newstr='';
+			for(var i=1;i<=b;i++){
+				newstr+=a
+			}
+			return newstr
+		}
+		console.log(xun(str,3));
+
+		
+		//11、10到100的十位随机数并排序
+		for(var i=1;i<=10;i++){			
+				var ran=Math.floor(Math.random()*91+10)			
+			arr.push(ran);
+		}
+		console.log(arr.sort(function(a,b){return a-b}))
+
+		//12、写出一个段脚本，输出当前日期5天之后是星期几,三种方法
+		//第一种
+		/*var now=new Date();
+		var day=now.getDate()
+		var week=['日','一','二','三','四','五','六']
+		now.setDate(day+5)
+		console.log('星期'+week[now.getDay()])*/
+		//
+		/*var now=new Date();
+		var year=now.getFullYear();
+		var month=now.getMonth();
+	第二种	var date=now.getDate();
+		var week=['日','一','二','三','四','五','六']
+		var fulture=new Date(year,month,date+5);
+		console.log('5天之后是星期'+week[fulture.getDay()])*/
+		//第三种
+		/*var now=new Date();
+		var time=now.getTime();
+		var fulture=new Date();		
+		var ftime=time+24*60*60*1000*5;
+		var week=['日','一','二','三','四','五','六'];	
+			fulture.setTime(ftime);
+		console.log('5天之后是星期'+week[fulture.getDay()])*/
+
+		//13、封装一个n天之后是星期几的函数
+		function getday(n){
+			n=typeof(n)==='undefined'?0:n;
+			var now=new Date();
+			var time=now.getTime();
+			var fulture=new Date();
+			var ftime=time+24*60*60*1000*n;
+			fulture.setTime(ftime);
+			return fulture.getDay();
+		}
+		console.log(getday());
+
+		//14、"wellcome  to beijing"把第一个变大写返回'WellcomeToBeijing'
+		//和上题相同。驼峰
+		
+
+		//15、封装一个方法，实现求任意多个数的平均值。
+		function f1(){
+			//用一个变量接收和
+			var temp = 0;
+			//循环每个参数
+			for(var i=0; i<arguments.length; i++){
+				temp += arguments[i];
+			}
+			//返回平均数
+			return temp/arguments.length;
+		}
+		console.log(f1(1,2,3,4,9))
+
+		//16、/*判断字符串是否对称*/
+		var  str1="abch6g5g6hcba";
+        function isduic(str){
+            for(var i=0,len=str1.length;i<len/2;i++){
+              // alert(str[i]);
+              if(str[i]!=str[len-1-i]){//str.charAt(i)!=str.charAt(len-1-i);
+                  return "不对称";
+              }
+            }
+            return "对称";
+        }
+        console.log(isduic(str1));
+
+        //17、千分符
+         var str2=46548978911;
+        function qianff(str){
+            var strn=str.toString(),
+                len=strn.length,
+                ind=len%3,
+                //console.log(strn)
+                newstr=strn.substr(0,ind);
+                console.log(newstr);
+                if(ind==0){
+                   newstr=strn.substr(0,3);
+                    ind=3;
+                    //console.log(newstr);
+                }
+                for(i=ind;i<len;i=i+3){
+                  newstr+=","+strn.substr(i,3);
+                }
+                return newstr;
+        }
+        console.log(qianff(str2))
+
+        //18、随机生成十六进制的颜色值 var arr=["0","2","3","4","5","6","7","8","9","a","b","c","d"]
+        var arrHex=["0","2","3","4","5","6","7","8","9","a","b","c","d"];
+		var fuhao = "#";
+		for(var i=0;i<6;i++){
+			var color = arrHex[Math.floor(Math.random()*arrHex.length)];
+			fuhao= fuhao+color;
+			// str =str+arrHex[a];
+		}
+		console.log(fuhao);
+
+		//19、随机从数组中取出三个不同的值。var arr = [1,2,3,4,5,6,7,8,9];
+		var arr = [1,2,3,4,5,6,7,8,9];
+		var brr = [];
+		for(var i=0;brr.length<3;i++){
+			var a = Math.floor(Math.random()*arr.length);
+			var b = arr[a];
+			if(brr.indexOf(b)==-1){
+				brr.push(b);																						
+			}
+		}
+		console.log(brr);
+
+		//20、求数组中字符串的个数
+		var str=[0,1,2,3,4,5,"a","b","c","b"],sum=0;
+		function strn(arr){
+			for(var i=0;i<arr.length;i++){
+				if(typeof(arr[i])=="string"){
+					sum++;
+				}
+			}
+			return sum;
+		}
+		console.log(strn(str));
+
+		//21、删除数组中指定的值
+		var drr = ["1411A","44","34305","djg","pic",100,35,28];
+		function fun5(rr,num){
+			// for(var i = 0; i<rr.length;i++){
+			// 	if(rr[i]==num){
+			// 		rr.splice(i,1);
+			// 		break;
+			// 	}
+			// }
+			var newrr = rr.splice(num,1);
+			return rr;			
+		}
+		console.log(fun5(drr,1));
+
+		//22、把重复的值放入一个新的数组中  //这中方法过于繁琐，可以使用indexOf方法，等于-1判断
+		var hrr = ["55","55","2","1"];
+		function fun7(rra,num){
+			var a = 0;
+			for(var i = 0;i<rra.length;i++){
+				if(rra[i]==num){
+					a++;
+				}
+			}
+			return a;
+		}
+		var rrb = [];
+		for(var i = 0 ;i <hrr.length;i++){
+			var length = fun7(hrr,hrr[i]);
+			if(length >1){
+				rrb.push(hrr[i]);
+			}
+		}
+		console.log(rrb);
+
+		//23、截取字符串的var s="abcdefg";截取完成后实现反转功能：g,f,e  其实等同于数组翻转
+			// 第一种
+		/*var str="hello";
+		var arr=str.split("");
+		var rts=arr.reverse();
+		console.log(rts);*/
+		// 第二种
+		/*var str="hello";
+		var strn="";
+		for(var i=str.length;i>=0;i--){
+			strn+=str[i];
+		}
+		console.log(strn);*/
+		//第三种
+		/*var str="hello",arr=[];
+		for(var i=0;i<str.length;i++){
+			arr.unshift(str[i]);
+		}
+		console.log(arr);*/
+
+		//24、拓展一个方法，用于删除数组中的指定值。同21题一样
+
+
+		//附1：编程实现数组中有几个字符串元素
+		var brr = ["1411A","44","34305","djg","pic",100,35,28];
+		function fun4(crr){
+			var count = 0;
+			for(var i = 0;i<crr.length;i++){
+				if(typeof crr[i] == "string"){
+					count++
+				}
+			}
+			return count;
+		}
+		fun4(brr);
+		
+		
+		//附2：数组反转
+		var s = "abcdefghiklmn";
+		function fun6(str){
+			// var ss = s.splice("");
+			var ss = s.split("");
+			var ssa = [];
+			for(var i = 0 ;i<ss.length;i++){
+				ssa.unshift(ss[i]);
+			}
+			return ssa.join("");
+		}
+		fun6(s);
+		//附3：将所有数组内所有重复的值取出来放到一个新的数组中
+	  // var st="123abcdefgaaaasssssssssssssss123",srn="",cou=0;
+	  // var str=st.split("");
+	  // function stn(srr,strn){
+	  // 	var count=0;
+	  // 	for(var i=0;i<srr.length;i++){	
+	  // 		if(srr[i]==strn){
+	  // 			count++;
+	  // 		}
+	  // 	}
+	  // 	return count;
+	  // }            
+	  // for(var i=0;i<str.length;i++){
+	  // 	var anr=stn(str,str[i]);
+	  // 	if(anr>cou){
+	  // 		cou=anr;
+	  // 		srn=str[i];
+	  // 	}
+	  // }  
+	  // console.log("出现最多的字母是"+srn+"次数"+cou); 
+
+	  /*25、var url = "http://localhost/mylive.php?id=99&key=双11特惠";封装一个函数，调用函数时传入要获取的参数名，函数返回该参数对应的值，如果找不到，弹出警告框提示用户“没有该参数对应的值”。如传入id，返回99；传入key返回“双11特惠”。*/
+
+		function fun(val){
+			var url = "http://localhost/mylive.php?id=99&key=双11特惠";
+			var a = url.lastIndexOf('?');
+			var b = url.substr(a+1);
+			var arr = b.split("&");
+			for(var i=0;i<arr.length;i++){
+				var num = arr[i].indexOf('=');
+				if(num>0){
+					var names = arr[i].substr(0,num);
+					var vals = arr[i].substr(num+1);
+				}
+				if(val == names){
+					return  vals;
+				}
+			}
+			return -1;
+		}
+
+		console.log(fun('11'));
+
+
+
+		//第二种
+		var url = 'http://localhost/mylive.php?id=99&key=双十一特惠';
+
+	function getParam(name){
+	   var str = url.substr(url.indexOf("?")+1),
+	       params = str.split("&"),
+	       strs = "";
+	   for(var i=0,len=params.length;i<len;i++){
+	       strs = params[i].split("=");
+	       if(strs[0] == name){
+	           return strs[1];
+	       }
+	   }
+	   return false;
+	}
+
+	var param = getParam("id");
+	if(!param) alert("没有对应的参数");
+	console.log(param);
+			26.//去掉前后空格
+		var str='  ffe ww ee fewf   ';
+        var re=/^\s+|\s+$/g;
+
+        alert('('+str.replace(re, '')+')');
+
+        //27.//将相邻元素反转
+        //a b c d e f g => b a d c f e g;
+         
+        function fn(brr){
+        	var temp = '';
+        	for(var i=0;i<brr.length;i++){
+        		if(i%2==0 && brr[i+1]){
+        			temp = brr[i];
+        			brr[i] = brr [i+1];
+        			brr[i+1] = temp;
+
+        		}
+        	}
+        	return brr;
+        }
+        alert(fn(arr))
+
+        //28.//字符串移动（字符串为 *号和26个字母的任意数组合，把 * 号都移动到最左侧，把字母移动到最右侧并保持相对顺序不变），要求空间复杂度最小
+          var str = 'abc*de*f*'
+         function fun(strs){
+            var brr = '';
+            var count = 0;
+            for(var i=0;i<strs.length;i++){
+            	if(strs[i]=='*'){
+            		count+=1;
+            		strs = (str.substring(0,i))+(str.substring(i+1,strs.length));
+            	}
+            }
+            for(var j=0;j<count;j++){
+            	strs = '*'+ strs;
+            }
+            return strs
+         }
+         alert(fun(str));
+
+// （1）、写一个循环，计算5-50之间所有除了30和45之外的3的倍数的和，将结果打印出来。
+		  
+// （2）、已知数组：strs=[“a”,”b”,”c”,”d”]；封装一个函数，实现将数组翻转返回翻转之后的字符串，如传入strs这个数组，返回dcba这样一个字符串（不允许使用reverse这个方法）。
+// 
+	//3、写一个方法，求二维数组的和。如var arr = [[1,2,7],[4,5,6],[9,8,20]];
+		var arr = [[1,2,7],[4,5,6],[9,8,20]];
+		//定义函数
+		
+		function fun(brr){
+		//定义求和变量
+		var count=0;	
+		//遍历arr的一维数组
+			for(var i=0;i<brr.length;i++){
+		//遍历arr的二维数组
+				for(var j=0;j<brr[i].length;j++){
+		//将每个值加起来
+					count+=brr[i][j]
+				}
+			}
+			return count;
+		}
+		//调用函数
+		alert(fun(arr));
+  
+
+//函数变量作用域问题
+ 	// var tt = 10;
+		// function fun1(){
+		// 	alert(tt);
+		// 	var tt = 20;
+		// 	alert(tt);
+		// }
+		// fun1();
+		// var a = 5;
+		// function fun2(a){
+		// 	a = 10;
+		// 	alert(a);
+		// }
+		// fun2(a);
+		console.log(Math.random()*2);
+
+
+	</script>
+</body>
+</html>
